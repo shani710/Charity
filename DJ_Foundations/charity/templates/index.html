@@ -1,0 +1,196 @@
+{% load static %}
+<html>
+
+<head>
+
+</head>
+
+<body>
+    {% include 'navigation.html' %}
+
+    <hr class="mt-0">
+
+    <div class="container-fluid" id="Home">
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <p class="text-center pt-3 mb-0" style="color: red; font-size: 20px;">Reduce wastage of needy Items</p>
+                <h3 class="px-5 pt-5" style="color: green; ">
+                    Help others without any reason and give without expection of receiving any thing in return.
+                </h3>
+                <h3 class="px-5 pt-5" style="color: blue;"> Always gives without remembering and always receive
+                    forgetting</h3>
+                <div class="px-5">
+                    <a href="" class="btn btn-success">Read More <i class="fas fa-angle-double-right"></i></a>
+                    <a href="" class="btn btn-primary">Donate Now <i class="fas fa-angle-double-right"></i></a>
+
+                </div>
+            </div> <!-- end first column -->
+            <div class="col-lg-6 pl-5">
+                <img class="img-thumbnail" width="560" height="315" src="{% static 'images/donation.jpeg' %}"
+                    alt="Net issue">
+            </div> <!-- end 2nd column -->
+        </div><!-- end first row -->
+
+
+        <div class="container-fluid" id="About">
+            <div class="row">
+                <div class="col-lg-6 mb-4 pl-5">
+                    <img class="img-thumbnail" width="560" height="315" src="{% static 'images/donation1.jpeg' %}"
+                        alt="net issue">
+                </div>
+
+                <div class="col-lg-6">
+                    <h2 class="text-center pt-3 mb-0 text-secondary" style="font: size 30px;">About Us</h2>
+                    <p class="px-5 pt-5" style="font-size: 20px;">
+                        This system is provide a platform to dodor when the can donate things like food, cloths, money,
+                        books
+                        footwears, vessels etc. We collect all donation and redistribute to needy peoples.
+                    </p>
+                    <div class="px-5">
+                        <a href="" class="btn btn-success">Read More <i class="fas fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-5">
+        <h1 class="text-center text-danger font-weight-bold mb-3" style="font-family: Monotype Corsiva">-- Our Special
+            Services --</h1>
+
+        <div class="carousel slide" id="demo" data-ride="carousel">
+
+            <ul class="carousel-indicator">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+            </ul>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donatescloths.jpeg' %}" alt="">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Clothes Donation</h4>
+                                    <p class="card-text text-justify">Be a cause of someone's happiness Donate your old
+                                        clothes to needy people.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donatefootwares.jpeg' %}" alt=""
+                                    width="100%" height="200%">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Footwear Donation</h4>
+                                    <p class="card-text text-justify">Be a cause of someone's happiness Donate your old
+                                        clothes to needy people.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donatescloths.jpeg' %}" alt=""
+                                    width="100%" height="200%">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Vessel Donation</h4>
+                                    <p class="card-text text-justify">Be a cause of someone's happiness Donate your old
+                                        clothes to needy people.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- outer carsouel -->
+                <div class="carsouel-item ">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donationlogo.jpeg' %}" alt=""
+                                    width="100%" height="200%">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Books Donation</h4>
+                                    <p class="card-text text-justify">Donate your old books to needy students.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donatefootwares.jpeg' %}" alt=""
+                                    width="100%" height="200%">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Toys Donation</h4>
+                                    <p class="card-text text-justify">Donate your old toys to needy hildrns.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="card" style="width: 300px;">
+                                <img class="card-img-top" src="{% static 'images/donatesfurniture.jpeg' %}" alt=""
+                                    width="100%" height="200%">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Furniture Donation</h4>
+                                    <p class="card-text text-justify">Donate your old furniture to needy people.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- carusouel close  -->
+
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carsouel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carsouel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="row" id="donate">
+        <div class="col-lg-6" style="margin: auto">
+            <h3 class="text-center pt-5" style="color: green;">
+                Best Way To Help Others
+            </h3>
+
+            <p class="text-center" style="color: red; font-size: 20px">Join Us and</p>
+
+            <center><a href="" class="btn btn-success mt-5">Donate Nown <i class="fas fa-angle-double-right"></i></a>
+            </center>
+        </div>
+
+        <div class="row" id="distributor">
+            <div class="col-lg-6" style="margin: auto">
+                <h3 class="text-center pt-5" style="color: green;">
+                    Become Distributor
+                </h3>
+
+                <p class="text-center" style="color: red; font-size: 20px">One of the greatest gift you can give is your
+                    time</p>
+
+                <center><a href="" class="btn btn-success mt-5">Distributor <i
+                            class="fas fa-angle-double-right"></i></a></center>
+            </div>
+        </div>
+
+        <div class="container text-center mt-5" id="Contact">
+            <h1 class="text-center font-weight-bold" style="font-family: Monotype Corsiva; color: #ee1d29;"> Contact Us
+            </h1>
+
+            <div class="row mt-5">
+                <div class="col-leg-3 col-sm-6">
+                    <h4><i class="fas fa-phone-sruar"></i> Contact</h4>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
