@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+
+<head>
+    <style>
+        body#login {
+            background-image: url("{% static 'images/bg.jpeg' %}");
+            /* Add other background properties as needed */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha384-r5lZgphvS/cxzRTIAGeVcZVzN1pa2ziSLfzZ2QF7AdJ7c+e4l8im3e5E9PloWMMs" crossorigin="anonymous">
+</head>
+
+<body id="login">
+    {% include 'navigation.html' %}
+    <hr class="mt-0">
+
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-dark">
+                <div class="card-title text-center mt-3">
+                    <img src="{% static 'images/useravatar.png' %}" width="150" height="150">
+                    <h2 class="text-white">Distributor login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="email" name="emailid" class="form-control" placeholder="email id">
+                            <!-- Use Bootstrap's form-control class for width adjustment -->
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="pwd" class="form-control" placeholder="password">
+                            <!-- Use Bootstrap's form-control class for width adjustment -->
+                        </div>
+                        <input type="submit" value="login" class="btn btn-success py-2">
+                        <a href="{% url 'index' %}" class="float-right text-white mt-2">Back to Home</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

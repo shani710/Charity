@@ -17,9 +17,44 @@
 
 #footer a,
 #contact a {
-    color: yellow;
+    color: red;
 }
 
 #contact a:hover {
     color: blue;
+}
+
+#scrollbtn {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 99;
+    border: none;
+    color: red;
+    background: #00abff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* login pages */
+#login {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    background-position: 0px 80px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Adjust the alpha channel (opacity) as needed */
+    color: white;
+    /* Text color */
+}
+
+#signup {
+    background-image: url(/static/images/bgtexture1.jpeg);
 }

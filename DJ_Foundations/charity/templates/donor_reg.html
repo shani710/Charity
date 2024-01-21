@@ -1,0 +1,89 @@
+<html>
+{% load static %}
+
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <style>
+        body#signup {
+            background-image: url("{% static 'images/bgtexture1.jpeg' %}");
+            /* Add other background properties as needed */
+        }
+    </style>
+    <script>
+        function checkpassword() {
+            if (document.signup.pwd.value != document.signup.cpwd.value) {
+                alert('Passward and confrim password does not same');
+                document.signup.cpwd.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    {% include 'navigation.html' %}
+    <hr class="mt-0">
+    <div class=" card shadow bg-dark m-5" id="signup">
+        <div class="card-body">
+            <h5 class="p-2" style="border-bottom: 2px solid orange;"> Create an Account(Donor) </h5>
+            <div class="container-fluid">
+                <form method="post" enctype="multipart/form-data" name="signup" onsubmit="return checkpassword()">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label for="">FirstName</label>
+                            <input type="text" class="form-control" name="firstname" placeholder="Enter First name"
+                                required pattern="[A-Za-z]+">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="">LastName</label>
+                            <input type="text" class="form-control" name="lastname" placeholder="Enter Last name"
+                                required pattern="[A-Za-z]+">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="">Email Id</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="">Contact</label>
+                            <input type="text" class="form-control" name="contact" placeholder="Contact Number"
+                                required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="pwd" placeholder="Enter Password"
+                                required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="">Confrim Password</label>
+                            <input type="text" class="form-control" name="cpwd" placeholder="Enter Password Again "
+                                required>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="">Upload Pick</label>
+                            <input type="file" class="form-control" name="userpic" required>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="">Address</label>
+                            <textarea type="addres" class="form-control" name="address" required
+                                placeholder="Enter Address"></textarea>
+                        </div>
+                        <input type="submit" name="submit" id="" value="Submit" class="m-2 px-3 btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

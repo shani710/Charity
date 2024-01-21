@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+
+<head>
+</head>
+
+<body>
+    {% include 'navigation.html' %}
+    <hr class="mt-0">
+
+    <div class="container mt-5 p-3">
+        <h2 class="text-center">Login As a</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-3">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/donor.jpg' %}" alt="" class="card-img-top"
+                        style="width: 100%; height:200px;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Donor</h4>
+                        <p class="card-text text-center">Some example text.</p>
+                        <a href="{% url 'donor_login' %}" class="btn btn-primary text-center">Go To Donor Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/donor.jpg' %}" alt="" class="card-img-top"
+                        style="width: 100%; height:200px;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Distributor</h4>
+                        <p class="card-text text-center">Some example text.</p>
+                        <a href="{% url 'distributor_login' %}" class="btn btn-primary text-center">Go To Distributor
+                            Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/donor.jpg' %}" alt="" class="card-img-top"
+                        style="width: 100%; height:200px;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Admin</h4>
+                        <p class="card-text text-center">Some example text.</p>
+                        <a href="{% url 'admin_login' %}" class="btn btn-primary text-center">Go To Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

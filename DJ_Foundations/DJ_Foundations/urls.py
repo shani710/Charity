@@ -16,9 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from DJ_Foundations.DJ_Foundations.settings import MEDIA_URL
 from charity.views import *
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
-]
+    path('all_logins', all_logins,name='all_logins'),
+    path('donor_login', donor_login,name='donor_login'),
+    path('distributor_login', distributor_login,name='distributor_login'),
+    path('admin_login', admin_login,name='admin_login'),
+    path('donor_reg', donor_reg,name='donor_reg'),
+
+
+
+
+
+]+static(settings,MEDIA_URL, document_root= settings.MEDIA_ROOT);
