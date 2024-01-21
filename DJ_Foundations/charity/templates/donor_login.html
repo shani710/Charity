@@ -36,7 +36,7 @@
                                     <i class="fa fa-user fa-2x"></i>
                                 </span>
                             </div>
-                            <input type="text" name="emailid" class="form-control" placeholder="email id">
+                            <input type="email" name="emailid" class="form-control" placeholder="email id">
                             <!-- Use Bootstrap's form-control class for width adjustment -->
                         </div>
 
@@ -57,6 +57,19 @@
             </div>
         </div>
     </div>
+
+    {% if error == "no" %}
+    <script>
+        alert('Signup Successful');
+        window.location = ('{% url "donor_home" %}');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert('Something went wrong try again....');
+    </script>
+    {% endif %}
 </body>
 
 </html>

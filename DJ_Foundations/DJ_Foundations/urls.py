@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from DJ_Foundations.DJ_Foundations.settings import MEDIA_URL
 from charity.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from charity.views import donor_login
+from DJ_Foundations.settings import MEDIA_URL
+
 
 
 urlpatterns = [
@@ -30,9 +32,14 @@ urlpatterns = [
     path('distributor_login', distributor_login,name='distributor_login'),
     path('admin_login', admin_login,name='admin_login'),
     path('donor_reg', donor_reg,name='donor_reg'),
+    path('donor_home', donor_home,name='donor_home'),
+    path('donor_base', donor_base,name='donor_base'),
+    path('logout/', Logout,name='logout'),
+    path('donate_now', donate_now,name='donate_now'),
+    path('donate_history', donation_history,name='donation_history'),
 
 
 
 
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-]+static(settings,MEDIA_URL, document_root= settings.MEDIA_ROOT);

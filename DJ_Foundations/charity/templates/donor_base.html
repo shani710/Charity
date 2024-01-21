@@ -1,0 +1,133 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>AJ Charity Foundation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" crossorigin="anonymous">
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <script src="{% static 'js/myjs.js' %}"></script>
+</head>
+
+<body>
+    <!-- vertical navbar start -->
+    <div class="vertical-nav bg-white" id="sidebar">
+        <div class="py-4 px-3 mb-1 bg-light">
+            <!--align media objects (like images or videos) together with content
+         To create a flexbox container and to transform direct children into flex items, -->
+            <p class="text-center font-weight-bold text-uppercase px-3 small dashboard-text">AJ Charity Foundation
+            </p>
+
+            <div class="media d-flex align-items-center">
+                <img src="{{request.user.donor_set.all.0.userpic.url}}" width="80" height="80"
+                    class="mr-3 rounded-circle img-thumbnail shadow-sm">
+
+                <div class="media-body">
+                    <h4 class="mb-0">Donor</h4>
+                    <p class="text-muted mb-0">{{request.user.username}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- flex-column to display the flex items vertically (on topof each other) -->
+        <ul class="nav flex-column bg-white">
+            <li class="nav-item">
+                <a href="{% url 'donor_home' %}" class="nav-link text-dark bg-light">
+                    <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'donate_now' %}" class="nav-link text-dark bg-light">
+                    <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                    Donate Now
+                </a>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark bg-light" href="#" id="navbardrop">
+                    <i class="fas fa-chart-bar mr-3 text-primary fa-fw"></i>Services
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="">Add Services</a>
+                    <a class="dropdown-item" href="">Manage Services</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark bg-light" href="#" id="navbardrop">
+                    <i class="fas fa-chart-bar mr-3 text-primary fa-fw"></i>Contact Us Queries
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="">Unread Queries</a>
+                    <a class="dropdown-item" href="">Read Queries</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark bg-light" href="#" id="navbardrop">
+                    <i class="fas fa-chart-bar mr-3 text-primary fa-fw"></i>Booking
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="">Add Services</a>
+                    <a class="dropdown-item" href="">Manage Services</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="nav-link text-dark bg-light">
+                    <i class="fas fa-cog mr-3 text-primary fa-fw"></i>
+                    Change Password
+                </a>
+            </li>
+
+
+
+
+        </ul>
+    </div>
+    <!-- vertical navbar end-->
+
+    <!-- page content holder -->
+    <div class="page-content p-4" id="content">
+        <a href="{% url 'logout' %}" title="logout" class="float-right text-white"><i
+                class="fas fa-sign-out-alt"></i></a>
+
+        <!--toggle btn -->
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill">
+            <i class="fas fa-bars mr-2">
+                <small class="text-uppercase font-weight-bold">Toggle</small>
+
+            </i>
+        </button>
+
+        {% block main%}
+
+        {% endblock %}
+    </div>
+    <!-- end page content holder -->
+</body>
+
+</html>

@@ -82,7 +82,18 @@
         </div>
     </div>
 
+    {% if error == "no" %}
+    <script>
+        alert('Signup Successful');
+        window.location = ('{% url "donor_login" %}');
+    </script>
+    {% endif %}
 
+    {% if error == "yes" %}
+    <script>
+        alert('Something went wrong try again....');
+    </script>
+    {% endif %}
 
 </body>
 
