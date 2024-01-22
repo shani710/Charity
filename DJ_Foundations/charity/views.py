@@ -8,6 +8,7 @@ def index(request):
 def all_logins(request):
     return render(request, 'all_logins.html' )
 
+#   for donor login
 def donor_login(request):
     if request.method == "POST":
         email = request.POST.get('emailid')
@@ -24,8 +25,26 @@ def donor_login(request):
 def distributor_login(request):
     return render(request, 'distributor_login.html')
 
+#   for admin login
+
 def admin_login(request):
-    return render(request, 'admin_login.html')
+
+    if request.method == "POST":
+        username = request.POST.get('username')
+        pwd = request.POST.get('pwd')
+        user = authenticate(username=username,password=pwd)
+        try:
+             if user.is_staff:
+                login(request, user)
+                error = 'no'
+
+             else:
+                error = 'yes'
+        except:
+            error = "yes"   
+    return render(request, 'admin_login.html', locals())
+
+#   for signup
 
 def donor_reg(request):
     error = ""
@@ -48,13 +67,26 @@ def donor_reg(request):
             error = 'yes'
     return render(request, 'donor_reg.html', locals())
 
+# donor Homepage
 def donor_home(request):
     if not request.user.is_authenticated:
         return redirect('donor_login')
     return render(request, 'donor_home.html')
 
+# admin Homepage
+def admin_home(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    return render(request, 'admin_home.html')
+    
+
 def donor_base(request):
     return render(request, 'donor_base.html')
+
+def admin_base(request):
+    return render(request, 'admin_base.html')
+
+
 
 
 def Logout(request):
@@ -82,4 +114,8 @@ def donate_now(request):
 def donation_history(request):
     if not request.user.is_authenticated:
         return redirect('donor_login')
-    return render(request, 'donation_history.html')
+    user = request.user
+    donor = Donor.objects.get(user = user)
+    donations = Donation.objects.filter(donor=donor)
+
+    return render(request, 'donation_history.html',{"donations":donations})
