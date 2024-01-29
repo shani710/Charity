@@ -63,8 +63,9 @@ def donor_reg(request):
             Donor.objects.create(user=user, contact=contact, userpic=userpc, address=address)
 
             error = 'no'
-        except:
+        except Exception as e:
             error = 'yes'
+            print(e)
     return render(request, 'donor_reg.html', locals())
 
 # donor Homepage
@@ -99,16 +100,19 @@ def donate_now(request):
     user = request.user
     donor = Donor.objects.get(user=user)
     if request.method == "POST":
-       donationname = request.POST.get('donation') 
-       donationpic = request.FILES.get('donationpic') 
-       location = request.POST.get('collectionlocation') 
-       descroption = request.POST.get('description') 
-
+       donationname = request.POST.get('donationname')
+       donationpic = request.FILES.get('donationpic')
+       collectionlocation = request.POST.get('collectionlocation')
+       description = request.POST.get('description')
+       
        try:
-           Donation.objects.create(donor=donor, donationname=donationname,donationpic = donationpic, collectionlocation=location, descroption= descroption, status = "pending")
+           distributor = Distributor.objects.get(id=1)
+           Donation.objects.create(donor=donor,distributor=distributor, donationname=donationname,donationpic = donationpic, collectionlocation=collectionlocation, description= description, status = "pending")
            error = "no"
-       except:
+       except Exception as e:
+           print("Error:", e)
            error = "yes"
+        #    print(connection.queries)
     return render(request, 'donate_now.html', locals())
 
 def donation_history(request):
@@ -116,6 +120,6 @@ def donation_history(request):
         return redirect('donor_login')
     user = request.user
     donor = Donor.objects.get(user = user)
-    donations = Donation.objects.filter(donor=donor)
-
-    return render(request, 'donation_history.html',{"donations":donations})
+    donation = Donation.objects.filter(donor=donor)
+    
+    return render(request, 'donation_history.html',{'donation':donation})
