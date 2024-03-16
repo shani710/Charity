@@ -106,8 +106,8 @@ def donate_now(request):
        description = request.POST.get('description')
        
        try:
-           distributor = Distributor.objects.get(id=1)
-           Donation.objects.create(donor=donor,distributor=distributor, donationname=donationname,donationpic = donationpic, collectionlocation=collectionlocation, description= description, status = "pending")
+        #    distributor = Distributor.objects.get(id=1)
+           Donation.objects.create(donor=donor, donationname=donationname,donationpic = donationpic, collectionlocation=collectionlocation, description= description, status = "pending")
            error = "no"
        except Exception as e:
            print("Error:", e)
